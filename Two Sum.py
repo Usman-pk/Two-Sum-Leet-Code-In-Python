@@ -5,12 +5,12 @@ class Solution(object):
         :type target: int
         :rtype: List[int]
         """
-        indexesList = []
-        j = 1
         for i in range(len(nums)):
-            if nums[i] + nums[j] == target:
-                indexesList.append(i)
-                indexesList.append(j)
-                break
-            j = j + 1
-        print(indexesList)
+            for j in range(i+1, len(nums)):
+                if nums[i] + nums[j] == target:
+                    return [i, j]
+
+nums = [3, 2, 4]
+target = 6
+obj = Solution()
+obj.twoSum(nums, target)
